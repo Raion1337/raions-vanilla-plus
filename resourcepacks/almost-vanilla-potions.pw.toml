@@ -1,0 +1,19 @@
+filename = 'Almost Vanilla Potions.zip'
+name = 'Almost Vanilla Potions'
+side = 'client'
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = []
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '1.21.11', '26.1', '26.1.1', '26.1.2', '26.2' ]
+x-prismlauncher-release-type = 'Release'
+x-prismlauncher-version-number = '1.1.1'
+
+[download]
+hash = '41dbca37c7f2479f98e88a6aa1706f10c6ad41f77e3c379f24dbe27a3452de4adfc5ab4f2c31f1195267157ccdd3b1f2a944eac26bb688396ad96737e2b71f1e'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/XsLCz9bM/versions/IeqDeS2Z/Almost Vanilla Potions.zip'
+
+[update.modrinth]
+mod-id = 'XsLCz9bM'
+version = 'IeqDeS2Z'

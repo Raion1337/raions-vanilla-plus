@@ -1,0 +1,16 @@
+/dist/
+/build/
+*.mrpack
+*.log
+.env
+.env.*
+/saves/
+/logs/
+/crash-reports/
+/options.txt
+/servers.dat
+**/waypoints/
+**/cache/
+**/caches/
+__pycache__/
+*.pyc

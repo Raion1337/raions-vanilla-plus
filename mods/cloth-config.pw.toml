@@ -1,0 +1,19 @@
+filename = 'cloth-config-fabric-26.3.159.jar'
+name = 'Cloth Config v26.1'
+side = ''
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = [ 'fabric' ]
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '26.3' ]
+x-prismlauncher-release-type = 'Release'
+x-prismlauncher-version-number = '26.3.159+fabric'
+
+[download]
+hash = '8924e19d41845096724fa10f3717bc51964a0edbbbcad0ff1e6c6187a398b08f356e49579a657c2dc44a7f92e3850771f3ca70bf8c1f654de60425163b91dbb1'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/9s6osm5g/versions/fg2uyxOW/cloth-config-fabric-26.3.159.jar'
+
+[update.modrinth]
+mod-id = '9s6osm5g'
+version = 'fg2uyxOW'

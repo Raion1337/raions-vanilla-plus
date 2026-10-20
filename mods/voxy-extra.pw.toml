@@ -1,0 +1,30 @@
+filename = 'voxy-extra-0.2.7.jar'
+name = 'Voxy Extra'
+side = 'client'
+x-prismlauncher-loaders = [ 'fabric' ]
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '26.3' ]
+x-prismlauncher-release-type = 'Release'
+x-prismlauncher-version-number = '0.2.7'
+
+[download]
+hash = '473adf429c567f5315afe87728d06fe50004a659de51d2e4565fdea49ddaea650bd755456c1b705be2353acb938f5fa530723b209df8cfc269631798e8a312ec'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/znQnhrkQ/versions/mWMDUePT/voxy-extra-0.2.7.jar'
+
+[update.modrinth]
+mod-id = 'znQnhrkQ'
+version = 'mWMDUePT'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'fxxUqruK'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'P7dR8mSH'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = '9s6osm5g'
+type = 'REQUIRED'

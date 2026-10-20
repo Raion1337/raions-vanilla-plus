@@ -1,0 +1,22 @@
+filename = 'animatica-0.6.3+26.3.jar'
+name = 'Animatica Refabricated'
+side = 'client'
+x-prismlauncher-loaders = [ 'fabric' ]
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '26.3' ]
+x-prismlauncher-release-type = 'Release'
+x-prismlauncher-version-number = '0.6.3+26.3'
+
+[download]
+hash = 'e4e7e824803a9bd946318575ca4d1b55f78cb588fd08f621000deaa89bac2579d3d73aa410e3969bba709fac41c15cf1b71bb9e8c2217d904139b584924a043f'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/xEyZuswh/versions/doj27VCh/animatica-0.6.3%2B26.3.jar'
+
+[update.modrinth]
+mod-id = 'xEyZuswh'
+version = 'doj27VCh'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'P7dR8mSH'
+type = 'REQUIRED'

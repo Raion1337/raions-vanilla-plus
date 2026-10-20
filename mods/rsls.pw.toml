@@ -1,0 +1,19 @@
+filename = 'rsls-1.4.0.jar'
+name = 'Raise Sound Limit Simplified'
+side = ''
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = [ 'fabric' ]
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '26.3' ]
+x-prismlauncher-release-type = 'Release'
+x-prismlauncher-version-number = '1.4.0'
+
+[download]
+hash = 'f04fcfd29d52de8a60f5f24849ec90f32b97d6c8bc70ca37110ed5a8325976ef3b91b971653e169e1ad6bc2372dc08326e807d76ddb337430275c796961ed888'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/SKW62Pht/versions/2sa9UZP2/rsls-1.4.0.jar'
+
+[update.modrinth]
+mod-id = 'SKW62Pht'
+version = '2sa9UZP2'

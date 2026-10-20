@@ -1,0 +1,106 @@
+filename = 'justenoughbreeding-fabric-26.3-3.4.1.jar'
+name = 'Just Enough Breeding (JEBr)'
+side = 'client'
+x-prismlauncher-loaders = [ 'fabric' ]
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '26.3' ]
+x-prismlauncher-release-type = 'Release'
+x-prismlauncher-version-number = '3.4.1'
+
+[download]
+hash = '55c8c1029497dbc4543be9ac8022c54273e9439a493ce08445721f2c5f37c854051d59a664e93a8ab4d751eb9ffe6971f7ec51ad3a7c0605ee525ba3f88cb42a'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/9Pk89J3g/versions/OmFJDZdq/justenoughbreeding-fabric-26.3-3.4.1.jar'
+
+[update.modrinth]
+mod-id = '9Pk89J3g'
+version = 'OmFJDZdq'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'BzOTnuqM'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'HaIJSYr6'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'jG8Q2YwT'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'nUsNRn4i'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'POQ2i9zu'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'F8BQNPWX'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'u6dRKJwZ'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'Yd4wb5wZ'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = '1l7Rzc6k'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'GuE5FpvB'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'mW7jD34A'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = '4lShBFYg'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'NIDdwWhd'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'NCKpPR0Z'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'nfn13YXA'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'mLNfkt6W'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'ra7o6Sl7'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'jkb861Ih'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'P7dR8mSH'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'FrkP72va'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = '7fThKQUz'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'bPTEaC7v'
+type = 'OPTIONAL'

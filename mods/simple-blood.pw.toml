@@ -1,0 +1,22 @@
+filename = 'simpleblood-fabric-1.1.1+26.3.jar'
+name = 'Simple Blood'
+side = 'client'
+x-prismlauncher-loaders = [ 'fabric' ]
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '26.3' ]
+x-prismlauncher-release-type = 'Release'
+x-prismlauncher-version-number = '1.1.1+26.3'
+
+[download]
+hash = '1f182fd84fa5aaf17f27d4965c2b0919c9bf4df1cbdd47999ac2e2bfb2c011495624f6f9a9f821732363d5afce576ade1dc6135b25a45ae9df541769c1df28f9'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/lAKYDTAr/versions/SbqRelUX/simpleblood-fabric-1.1.1%2B26.3.jar'
+
+[update.modrinth]
+mod-id = 'lAKYDTAr'
+version = 'SbqRelUX'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'P7dR8mSH'
+type = 'REQUIRED'

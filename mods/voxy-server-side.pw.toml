@@ -1,0 +1,19 @@
+filename = 'voxy-server-side-fabric.jar'
+name = 'Voxy Server Side'
+side = 'both'
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = [ 'fabric' ]
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '26.3' ]
+x-prismlauncher-release-type = 'Release'
+x-prismlauncher-version-number = '0.19.0'
+
+[download]
+hash = 'd9a9dbd85b591178b51de75dc827a36c779b463c611b2d78536472b3161fcd114f56926686d9a730f8148a37d3e7ca88e94756b8702d91127b740ebafdf97019'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/84zcagOb/versions/d8DmTelD/voxy-server-side-fabric.jar'
+
+[update.modrinth]
+mod-id = '84zcagOb'
+version = 'd8DmTelD'

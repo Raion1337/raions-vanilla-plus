@@ -1,0 +1,26 @@
+filename = "AL's Creepers Revamped 2.0.zip"
+name = "AL's Creepers Revamped"
+side = 'client'
+x-prismlauncher-loaders = []
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '1.21.8', '1.21.9', '1.21.10', '1.21.11', '26.1', '26.1.1', '26.1.2', '26.2' ]
+x-prismlauncher-release-type = 'Release'
+x-prismlauncher-version-number = '2.0'
+
+[download]
+hash = '700e4684a24397f700836d346a952596b487e0b29118a46365cbb4f0c6b6ec9710d40888663a9b51d9ae0c01d96921c1ca0a6e5e53bee02de752f9b699fc6139'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/d2srP5t3/versions/nhyEtMeW/AL%27s Creepers Revamped 2.0.zip'
+
+[update.modrinth]
+mod-id = 'd2srP5t3'
+version = 'nhyEtMeW'
+
+[[x-prismlauncher-dependencies]]
+addonId = '50dA9Sha'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'AhPf2E1u'
+type = 'OPTIONAL'

@@ -1,0 +1,26 @@
+filename = "AL's Piglins Revamped 1.2.zip"
+name = "AL's Piglins Revamped"
+side = 'client'
+x-prismlauncher-loaders = []
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '1.21.11' ]
+x-prismlauncher-release-type = 'Release'
+x-prismlauncher-version-number = '1.2'
+
+[download]
+hash = '7a31634e2e12c6094f63842f9b8dc6321bcb7ff48e83de37d57153ceb035f1ac1bd54f9a4e133f595f22e92e203b140a870cd134073e005b20c64340c6943631'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/twztkPuQ/versions/Yv4kz1cr/AL%27s Piglins Revamped 1.2.zip'
+
+[update.modrinth]
+mod-id = 'twztkPuQ'
+version = 'Yv4kz1cr'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'BVzZfTc1'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = '4I1XuqiY'
+type = 'REQUIRED'

@@ -1,0 +1,38 @@
+filename = 'Simple Grass Flowers v1.9.6.zip'
+name = 'Simple Grass Flowers'
+side = 'client'
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = []
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [
+    '1.20',
+    '1.20.1',
+    '1.20.2',
+    '1.20.3',
+    '1.20.4',
+    '1.20.5',
+    '1.20.6',
+    '1.21',
+    '1.21.1',
+    '1.21.2',
+    '1.21.3',
+    '1.21.4',
+    '1.21.5',
+    '1.21.6',
+    '1.21.7',
+    '1.21.8',
+    '1.21.9',
+    '1.21.10'
+]
+x-prismlauncher-release-type = 'Release'
+x-prismlauncher-version-number = '1.9.6'
+
+[download]
+hash = '47c295f2f0afa9509cceb1a35ad65ce2ada3ec443d068e710d841bda974e448447cfaa2510d7cd8a9c92b308894aec31bc892a5129b6b416d458d58c852de4a2'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/ti9KkMHm/versions/BFqp4P2V/Simple Grass Flowers v1.9.6.zip'
+
+[update.modrinth]
+mod-id = 'ti9KkMHm'
+version = 'BFqp4P2V'

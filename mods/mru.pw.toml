@@ -1,0 +1,22 @@
+filename = 'mru-1.0.44+26.3-fabric.jar'
+name = 'MRU'
+side = ''
+x-prismlauncher-loaders = [ 'fabric' ]
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '26.3' ]
+x-prismlauncher-release-type = 'Release'
+x-prismlauncher-version-number = '1.0.44+26.3-fabric'
+
+[download]
+hash = 'ed04ad67e85f370a9a8275b604cd78b2c206082ac9b44e983d3884036ccbb59f190288bcd9d6be9f42450c43d5d10d9e9f70774b04d58d7606caa5014119efe7'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/SNVQ2c0g/versions/fHDvIf3d/mru-1.0.44%2B26.3-fabric.jar'
+
+[update.modrinth]
+mod-id = 'SNVQ2c0g'
+version = 'fHDvIf3d'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'P7dR8mSH'
+type = 'REQUIRED'

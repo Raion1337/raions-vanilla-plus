@@ -1,0 +1,42 @@
+filename = 'InventoryParticles-3.3.0+26.3+fabric.jar'
+name = 'Inventory Particles'
+side = ''
+x-prismlauncher-loaders = [ 'fabric' ]
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '26.3' ]
+x-prismlauncher-release-type = 'Release'
+x-prismlauncher-version-number = '3.3.0+26.3+fabric'
+
+[download]
+hash = '631df49db20ff0506d1e08dcb1de4998226830cfb19f429b919d675dc1402945b1f7cb373c79b5158de463a49502edbeaa71f0c88cabb028739b9c19b1175a03'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/XYnKrsxH/versions/NDNvqH73/InventoryParticles-3.3.0%2B26.3%2Bfabric.jar'
+
+[update.modrinth]
+mod-id = 'XYnKrsxH'
+version = 'NDNvqH73'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'mOgUt4GM'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'FCzmUKBr'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = '1eAoo2KR'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'P7dR8mSH'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'ffLDUGbm'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'PLAGcSFJ'
+type = 'OPTIONAL'

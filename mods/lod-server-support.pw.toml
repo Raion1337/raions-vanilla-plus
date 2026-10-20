@@ -1,0 +1,38 @@
+filename = 'lod-server-support-fabric-0.19.0+26.3.jar'
+name = 'LOD Server Support'
+side = 'both'
+x-prismlauncher-loaders = [ 'fabric' ]
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '26.3' ]
+x-prismlauncher-release-type = 'Release'
+x-prismlauncher-version-number = 'v0.19.0+fabric+mc26.3'
+
+[download]
+hash = 'ade1910c0459091d397afdd048e74f45d32059b4b0745be688a7c1b2d7bcb108559ac7a874756902a1d83632e848e124e10aa5888c52bacd314fccc8cdfdf8a4'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/lKiXKLvv/versions/L5AfxqAk/lod-server-support-fabric-0.19.0%2B26.3.jar'
+
+[update.modrinth]
+mod-id = 'lKiXKLvv'
+version = 'L5AfxqAk'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'P7dR8mSH'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'fxxUqruK'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'AANobbMI'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'mOgUt4GM'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'lfHFW1mp'
+type = 'OPTIONAL'

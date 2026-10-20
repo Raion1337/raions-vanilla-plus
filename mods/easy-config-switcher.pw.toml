@@ -1,0 +1,26 @@
+filename = 'ecs-fabric-26.3-2.0.0.jar'
+name = 'Easy Config Switcher'
+side = 'client'
+x-prismlauncher-loaders = [ 'fabric' ]
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '26.3' ]
+x-prismlauncher-release-type = 'Release'
+x-prismlauncher-version-number = '2.0.0-fabric'
+
+[download]
+hash = '259a386e68a4f10ae3bd10606209f7b670e79a435b3a7e8dd6771a520dbd2d475a1582ea4d2b85cf5d6df0c36856eeb941551dd9f0b320dd1b4c48311657ca1d'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/THktAjW2/versions/9RP9TALj/ecs-fabric-26.3-2.0.0.jar'
+
+[update.modrinth]
+mod-id = 'THktAjW2'
+version = '9RP9TALj'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'P7dR8mSH'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'mOgUt4GM'
+type = 'OPTIONAL'

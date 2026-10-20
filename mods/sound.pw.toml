@@ -1,0 +1,30 @@
+filename = 'sounds-2.6.0+26.3-fabric.jar'
+name = 'Sounds'
+side = ''
+x-prismlauncher-loaders = [ 'fabric' ]
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '26.3' ]
+x-prismlauncher-release-type = 'Release'
+x-prismlauncher-version-number = '2.6.0+26.3-fabric'
+
+[download]
+hash = '3d258e40e4166d96fdcdcc8f0246bd6e2ab961c27aba5fccbfdd52dde521f4b5127d49a3ff4eb3a7b92a55c335ec6b144a84f9fcc4a11d9652944bfb32cba515'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/ZouiUX7t/versions/QCFPBvDa/sounds-2.6.0%2B26.3-fabric.jar'
+
+[update.modrinth]
+mod-id = 'ZouiUX7t'
+version = 'QCFPBvDa'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'SNVQ2c0g'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'P7dR8mSH'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = '1eAoo2KR'
+type = 'REQUIRED'

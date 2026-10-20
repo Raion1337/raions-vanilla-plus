@@ -1,0 +1,26 @@
+filename = 'authme-fabric-9.3.0+26.3.jar'
+name = 'Auth Me'
+side = 'client'
+x-prismlauncher-loaders = [ 'quilt', 'fabric' ]
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '26.3' ]
+x-prismlauncher-release-type = 'Release'
+x-prismlauncher-version-number = 'v9.3.0+26.3'
+
+[download]
+hash = '7ea8fdf1ff5bbf64cf5de0f2bc9d2ef0d7b2fdece230afd1389fc79c0460e227ea26f70daa31744b28da85e69c1a1827659c6363280e582aa5e76442d5ce220c'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/yjgIrBjZ/versions/IruchRZE/authme-fabric-9.3.0%2B26.3.jar'
+
+[update.modrinth]
+mod-id = 'yjgIrBjZ'
+version = 'IruchRZE'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'mOgUt4GM'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'M1953qlQ'
+type = 'EMBEDDED'

@@ -1,0 +1,19 @@
+filename = 'AdvancedCoreInfo-fabric-26.3-1.5.0.jar'
+name = 'AdvancedCoreInfo'
+side = ''
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = [ 'fabric' ]
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '26.3' ]
+x-prismlauncher-release-type = 'Beta'
+x-prismlauncher-version-number = '26.3-1.5.0'
+
+[download]
+hash = 'b6269752ccce966bc0eed41adf40dda004c0fb1742008c9672d851aad1d4b20cc272446556761c06fa04a12d97e26bdc4e635ee4de0585122832c60a3c2dc7a4'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/BaR4ijFC/versions/GC73OXFV/AdvancedCoreInfo-fabric-26.3-1.5.0.jar'
+
+[update.modrinth]
+mod-id = 'BaR4ijFC'
+version = 'GC73OXFV'

@@ -1,0 +1,30 @@
+filename = "AL's Piglins Revamped+FA 1.2.zip"
+name = "AL's Piglins Revamped x Fresh Animations"
+side = 'client'
+x-prismlauncher-loaders = []
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '1.21.11' ]
+x-prismlauncher-release-type = 'Release'
+x-prismlauncher-version-number = '1.2'
+
+[download]
+hash = 'a133ce8745a3741695a7fb7947165a8e0710947af28b5545a6912e1ee683fbfde0a8fdf77d9baf2cf4f133131dce5b379197300f934d7ef4211c95ec54caed44'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/RQUfNOVH/versions/WogeFltv/AL%27s Piglins Revamped%2BFA 1.2.zip'
+
+[update.modrinth]
+mod-id = 'RQUfNOVH'
+version = 'WogeFltv'
+
+[[x-prismlauncher-dependencies]]
+addonId = '50dA9Sha'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = '4I1XuqiY'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'BVzZfTc1'
+type = 'REQUIRED'

@@ -1,0 +1,14 @@
+name = "Raion's Vanilla Plus"
+author = "Raion"
+version = "2.0.0"
+description = "Pure Minecraft, refined. A carefully curated Fabric modpack focused on vanilla gameplay, performance, visuals, and quality of life."
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "0ad8c757af63d8d07b3e57efbde7578d0fcc4a159049a2dce5baa66298044dd4"
+
+[versions]
+fabric = "0.20.1"
+minecraft = "26.3"

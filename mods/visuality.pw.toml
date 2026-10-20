@@ -1,0 +1,26 @@
+filename = 'visuality-0.7.15+26.3.jar'
+name = 'Visuality'
+side = ''
+x-prismlauncher-loaders = [ 'fabric' ]
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '26.2', '26.3' ]
+x-prismlauncher-release-type = 'Beta'
+x-prismlauncher-version-number = '0.7.15+26.3'
+
+[download]
+hash = '90145cad547d329d5134eabbf45c7f35b1d0ce3ff2bcef8a1b187dc33723121b1a235c0cc259043588835b0cb7b31cba4aa84d738be810f0ea073308bec2eb4a'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/rI0hvYcd/versions/BNe9kpJ7/visuality-0.7.15%2B26.3.jar'
+
+[update.modrinth]
+mod-id = 'rI0hvYcd'
+version = 'BNe9kpJ7'
+
+[[x-prismlauncher-dependencies]]
+addonId = '9s6osm5g'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'P7dR8mSH'
+type = 'REQUIRED'

@@ -1,0 +1,26 @@
+filename = 'craftingtweaks-fabric-26.3-26.3.0.1.jar'
+name = 'Crafting Tweaks'
+side = ''
+x-prismlauncher-loaders = [ 'fabric' ]
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '26.3' ]
+x-prismlauncher-release-type = 'Release'
+x-prismlauncher-version-number = '26.3.0.1+fabric-26.3'
+
+[download]
+hash = 'e980162e7a5c0e82f022e0b6a39ea289cab4e6e7c4bbaf726597e942f3b6521948214759ac8f5d34302bd67967f6bcb75271fc03d6ec9981d66f164a930a678f'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/DMu0oBKf/versions/EYGdRTcA/craftingtweaks-fabric-26.3-26.3.0.1.jar'
+
+[update.modrinth]
+mod-id = 'DMu0oBKf'
+version = 'EYGdRTcA'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'P7dR8mSH'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'MBAkmtvl'
+type = 'REQUIRED'

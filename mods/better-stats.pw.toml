@@ -1,0 +1,23 @@
+filename = 'betterstats-5.7.0+fn-26.3.jar'
+name = 'Better Statistics Screen'
+side = ''
+x-prismlauncher-loaders = [ 'neoforge', 'fabric' ]
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '26.3' ]
+x-prismlauncher-release-type = 'Release'
+x-prismlauncher-version-number = '5.7.0+fn-26.3'
+
+[download]
+hash = 'b0ada22182772784dae7487d19a725ebd311eff28fe99812c813737593a7bff9a0d11a05e2e9f258736765a341344a94ae5a77abe3665a1500b53548029728bb'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/n6PXGAoM/versions/Mefnti0P/betterstats-5.7.0%2Bfn-26.3.jar'
+
+[update.modrinth]
+mod-id = 'n6PXGAoM'
+version = 'Mefnti0P'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'Eldc1g37'
+type = 'REQUIRED'
+version = 'y6a97oNq'

@@ -1,0 +1,38 @@
+filename = 'AdvancedLootInfo-fabric-26.3-2.5.0.jar'
+name = 'AdvancedLootInfo'
+side = ''
+x-prismlauncher-loaders = [ 'fabric' ]
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '26.3' ]
+x-prismlauncher-release-type = 'Beta'
+x-prismlauncher-version-number = '26.3-2.5.0'
+
+[download]
+hash = 'd69a0cc90245496a1fab6dbc5b7591a638ef76414baa285501a8a00db00bd76d22728d69337501a01256f0bd7b638e7fe33fea8b90e04562f03cb981633eb760'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/PEPVViac/versions/kEMREes5/AdvancedLootInfo-fabric-26.3-2.5.0.jar'
+
+[update.modrinth]
+mod-id = 'PEPVViac'
+version = 'kEMREes5'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'fJFETWDN'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'fRiHVvU7'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'u6dRKJwZ'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'BaR4ijFC'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'nfn13YXA'
+type = 'OPTIONAL'

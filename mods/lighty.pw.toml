@@ -1,0 +1,22 @@
+filename = 'lighty-fabric-4.0.1+26.3.jar'
+name = 'Lighty'
+side = ''
+x-prismlauncher-loaders = [ 'fabric' ]
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '26.3' ]
+x-prismlauncher-release-type = 'Release'
+x-prismlauncher-version-number = '4.0.1+26.3'
+
+[download]
+hash = 'e606a84b357d36bddbc09b55aea825e158c45ef7b3bb931eb082e6e3379f1fc6b2cdde2f102d5d16b13b3ad7a11bd64ba8c1435c186bc2cca5f131b2486e4eb7'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/yjvKidNM/versions/37cxXiE9/lighty-fabric-4.0.1%2B26.3.jar'
+
+[update.modrinth]
+mod-id = 'yjvKidNM'
+version = '37cxXiE9'
+
+[[x-prismlauncher-dependencies]]
+addonId = 'P7dR8mSH'
+type = 'REQUIRED'

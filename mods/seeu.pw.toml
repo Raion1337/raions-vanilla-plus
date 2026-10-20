@@ -1,0 +1,19 @@
+filename = 'seeu-fabric-0.9.5.jar'
+name = 'SeeU'
+side = ''
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = [ 'fabric' ]
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '26.3' ]
+x-prismlauncher-release-type = 'Release'
+x-prismlauncher-version-number = '0.9.5'
+
+[download]
+hash = '942bd9c833b26df08dfa45e74f69f7479759106cf8f4731aee79a9c6551b8131d7baa621a4a430aace699851fa8c6dbb3fe14423277e8714296b5453c4cf1d5f'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/coyNPDey/versions/AbntvQim/seeu-fabric-0.9.5.jar'
+
+[update.modrinth]
+mod-id = 'coyNPDey'
+version = 'AbntvQim'

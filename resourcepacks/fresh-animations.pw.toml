@@ -1,0 +1,19 @@
+filename = 'FreshAnimations_v1.11.1_26.1+.zip'
+name = 'Fresh Animations'
+side = 'client'
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = []
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '26.1', '26.1.1', '26.1.2', '26.2', '26.3' ]
+x-prismlauncher-release-type = 'Release'
+x-prismlauncher-version-number = '1.11.1'
+
+[download]
+hash = '5357a3dbce74f5bdb688f3c4e6f7cadb6e0d81d3dde41d46017993d5bc5456a325a39a3faad0d471be51fcc73e3a47218ec64ed8e0024b092cd117b422f23356'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/50dA9Sha/versions/tvGVYMD4/FreshAnimations_v1.11.1_26.1%2B.zip'
+
+[update.modrinth]
+mod-id = '50dA9Sha'
+version = 'tvGVYMD4'
