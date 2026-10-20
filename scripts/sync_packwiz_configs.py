@@ -1,7 +1,8 @@
 """Sync selected first-launch defaults from a configured Prism test instance.
 
-Copies Xaero's Minimap config, optional Iris config and selected options.txt
-entries to Config Manager's config/modpack_defaults/ directory.
+Copies Xaero's Minimap config, Subtle Effects config, optional Iris config,
+and selected options.txt entries to Config Manager's
+config/modpack_defaults/ directory.
 
 No instance paths are stored in the script. CLI > environment > prompt.
 Dry-run by default; --apply is required to write. Existing affected files
@@ -20,6 +21,10 @@ import shutil
 import sys
 import tempfile
 from pathlib import Path
+
+SUBTLE_EFFECTS_FILES = frozenset(
+    {"blocks.toml", "entities.toml", "environment.toml", "general.toml", "items.toml"}
+)
 
 
 def resolve(value: str | Path) -> Path:
@@ -79,7 +84,17 @@ def xaero_config(relative: Path) -> bool:
     return any("xaero" in part or "minimap" in part for part in parts)
 
 
-def safe_config_files(config: Path, all_configs: bool, include_iris: bool) -> dict[Path, Path]:
+def subtle_effects_config(relative: Path) -> bool:
+    return (
+        len(relative.parts) == 2
+        and relative.parts[0].casefold() == "subtle_effects"
+        and relative.name in SUBTLE_EFFECTS_FILES
+    )
+
+
+def safe_config_files(
+    config: Path, all_configs: bool, include_iris: bool, include_subtle_effects: bool = True
+) -> dict[Path, Path]:
     files: dict[Path, Path] = {}
     for path in config.rglob("*"):
         if not secure_regular_file(path, config):
@@ -91,7 +106,14 @@ def safe_config_files(config: Path, all_configs: bool, include_iris: bool) -> di
         # Avoid personal/minimap map caches, even in --all-configs mode.
         if any(part in {"waypoints", "xaerowaypoints", "cache", "caches"} for part in lowered):
             continue
-        if all_configs or xaero_config(rel) or (include_iris and rel.as_posix().lower() == "iris.properties"):
+        if not include_subtle_effects and lowered[0] == "subtle_effects":
+            continue
+        if (
+            all_configs
+            or xaero_config(rel)
+            or (include_iris and rel.as_posix().lower() == "iris.properties")
+            or (include_subtle_effects and subtle_effects_config(rel))
+        ):
             files[rel] = path
     return files
 
@@ -132,6 +154,9 @@ def main() -> int:
     )
     parser.add_argument("--no-iris", action="store_true", help="Iris-Shader-Konfiguration nicht übernehmen")
     parser.add_argument(
+        "--no-subtle-effects", action="store_true", help="Subtle-Effects-Konfiguration nicht übernehmen"
+    )
+    parser.add_argument(
         "--full-options", action="store_true", help="Gesamte options.txt statt nur Keybinds/Resourcepacks übernehmen"
     )
     args = parser.parse_args()
@@ -149,7 +174,7 @@ def main() -> int:
     if not config.is_dir() or config.is_symlink():
         raise ValueError(f"Kein regulärer config/ Ordner: {config}")
 
-    configurations = safe_config_files(config, args.all_configs, not args.no_iris)
+    configurations = safe_config_files(config, args.all_configs, not args.no_iris, not args.no_subtle_effects)
     options_data, keys = options_defaults(mc / "options.txt", args.full_options)
 
     # Mapping: relative repository path -> byte content.
@@ -179,7 +204,7 @@ def main() -> int:
     for relative in sorted(configurations):
         print(f"  + {relative}")
     if not configurations:
-        print("HINWEIS: Keine Xaero-/Iris-Configs gefunden. Starte die Instanz und beende sie normal.")
+        print("HINWEIS: Keine Xaero-/Iris-/Subtle-Effects-Configs gefunden. Starte die Instanz und beende sie normal.")
     if args.all_configs:
         print("ACHTUNG: --all-configs kann persönliche Mod-Einstellungen enthalten; vor Push prüfen!")
     print(f"In Config Manager Defaults: {len(pending)} Datei(en)")

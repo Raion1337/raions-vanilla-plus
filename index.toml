@@ -9,6 +9,26 @@ file = "config/modpack_defaults/config/simpleblood.json"
 hash = "1129cb9e4cf7da9b4164bb6e053535e21a927ad9e30be8d2bdac59cc06a0db79"
 
 [[files]]
+file = "config/modpack_defaults/config/subtle_effects/blocks.toml"
+hash = "372c6b4dae2030784b499b01020e5534b1f5afe455c314b8c053ef03851d8ec4"
+
+[[files]]
+file = "config/modpack_defaults/config/subtle_effects/entities.toml"
+hash = "89c065312f4ed0148d9b505e7e0c922bd79b5809f1b58d0d2277b5908f63b918"
+
+[[files]]
+file = "config/modpack_defaults/config/subtle_effects/environment.toml"
+hash = "c9590ef4b1d42e6c7b5dc6feb83450f5aeabc562e9d3af68291b4c8af2e89841"
+
+[[files]]
+file = "config/modpack_defaults/config/subtle_effects/general.toml"
+hash = "41048196944e4d8e58cca9139f17f438609c35733fb8e06165336f7cc9854415"
+
+[[files]]
+file = "config/modpack_defaults/config/subtle_effects/items.toml"
+hash = "1695397d289006ad5f0f02a18d4e0891829cae32357178ac4fccccb698de3466"
+
+[[files]]
 file = "config/modpack_defaults/config/xaero/lib/client.cfg"
 hash = "43ed9dbfa5b4d6f0f3d2e8c2ced17ad298164b22c68ff11d415257a39b074336"
 
