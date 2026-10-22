@@ -1,0 +1,19 @@
+filename = 'shatterlib-fabric-0.7.0-beta.4+26.3.jar'
+name = 'ShatterLib | OctoLib'
+side = 'both'
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = [ 'fabric' ]
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '26.3' ]
+x-prismlauncher-release-type = 'Beta'
+x-prismlauncher-version-number = '0.7.0-beta.4+26.3'
+
+[download]
+hash = 'bc23c75a84266a00b3bae634f67aec84c99b6f9517cbd30b82f52842847e3615f4409b2955c0fc4487f62696a4e0777bd02d137ad94796db56056845774fe7fb'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/RH2KUdKJ/versions/zujVCEvc/shatterlib-fabric-0.7.0-beta.4%2B26.3.jar'
+
+[update.modrinth]
+mod-id = 'RH2KUdKJ'
+version = 'zujVCEvc'

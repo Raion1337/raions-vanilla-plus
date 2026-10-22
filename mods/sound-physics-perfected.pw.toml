@@ -1,0 +1,19 @@
+filename = 'sound_physics_perfected-1.17.7+26.3-fabric.jar'
+name = 'Sound Physics Perfected'
+side = 'client'
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = [ 'fabric' ]
+x-prismlauncher-lock-update = false
+x-prismlauncher-mc-versions = [ '26.3' ]
+x-prismlauncher-release-type = 'Release'
+x-prismlauncher-version-number = '1.17.7'
+
+[download]
+hash = '785562dfe36a1f9f01c1a37c043cb8f2de5a7a5e0fb36fbcf17d93de81b2889968240327532f6d843e166880a23b8052536a4a73a948cb2143921919a8d73fed'
+hash-format = 'sha512'
+mode = 'url'
+url = 'https://cdn.modrinth.com/data/KS6Hbu9Z/versions/zlYAFhzL/sound_physics_perfected-1.17.7%2B26.3-fabric.jar'
+
+[update.modrinth]
+mod-id = 'KS6Hbu9Z'
+version = 'zlYAFhzL'

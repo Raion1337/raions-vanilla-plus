@@ -1,10 +1,12 @@
-"""Import installed Prism resourcepacks into Packwiz using exact Modrinth SHA-512 matches.
+"""Import only enabled Prism resourcepacks into Packwiz using exact SHA-512 matches.
 
 - No hard-coded instance paths. --instance/--repo or environment variables.
 - Default is preview (never writes).
 - --apply generates .pw.toml metadata only; never copies ZIPs.
 - Uses Modrinth's version_files hash API, preserving local file names.
 - Does not modify Prism instance or unrelated Packwiz data.
+- --sync-order copies only resource-pack selection/order into shipped options defaults.
+- --prune-inactive removes repository metadata for packs outside the enabled list.
 """
 
 from __future__ import annotations
@@ -18,7 +20,6 @@ import sys
 import tomllib
 import urllib.error
 import urllib.request
-from collections import defaultdict
 from pathlib import Path
 from urllib.parse import urlsplit
 
@@ -40,6 +41,8 @@ def cli() -> argparse.Namespace:
         help="Packwiz root containing pack.toml (or PACKWIZ_REPO; default current directory)",
     )
     p.add_argument("--apply", action="store_true", help="Write .pw.toml files; default is preview only")
+    p.add_argument("--sync-order", action="store_true", help="Sync enabled pack order into options defaults")
+    p.add_argument("--prune-inactive", action="store_true", help="Remove metadata for inactive resource packs")
     return p.parse_args()
 
 
@@ -129,87 +132,152 @@ def main() -> int:
     except ValueError as e:
         print(str(e), file=sys.stderr)
         return 2
-    assets = sorted(
-        p for p in source.iterdir() if p.is_file() and p.suffix.lower() == ".zip" and not p.name.startswith(".")
-    )
+    try:
+        option_lines = {}
+        for line in (source.parent / "options.txt").read_text(encoding="utf-8").splitlines():
+            key = line.partition(":")[0]
+            if key in {"resourcePacks", "incompatibleResourcePacks"}:
+                if key in option_lines:
+                    raise ValueError(f"Duplicate {key} entry in options.txt")
+                option_lines[key] = line
+        active = json.loads(option_lines["resourcePacks"].partition(":")[2])
+        if not isinstance(active, list) or not all(isinstance(item, str) for item in active):
+            raise ValueError("resourcePacks must be a JSON list of strings")
+        if len(active) != len(set(active)):
+            raise ValueError("Duplicate enabled resource packs")
+        assets = []
+        for item in active:
+            if not item.startswith("file/"):
+                continue
+            filename = item[5:]
+            if not filename or Path(filename).name != filename or filename in {".", ".."}:
+                raise ValueError(f"Unsafe resource-pack filename: {filename!r}")
+            asset = source / filename
+            if asset.is_symlink() or not asset.is_file() or asset.suffix.lower() != ".zip":
+                raise ValueError(f"Enabled resource pack is not a regular ZIP: {filename}")
+            assets.append(asset)
+        incompatible = json.loads(option_lines.get("incompatibleResourcePacks", "incompatibleResourcePacks:[]").partition(":")[2])
+        if not isinstance(incompatible, list) or not all(isinstance(item, str) for item in incompatible):
+            raise ValueError("incompatibleResourcePacks must be a JSON list of strings")
+        option_lines.setdefault("incompatibleResourcePacks", "incompatibleResourcePacks:[]")
+    except (OSError, KeyError, ValueError) as exc:
+        print(f"Cannot read enabled resource packs: {exc}", file=sys.stderr)
+        return 1
     print(f"Prism resourcepacks : {source}")
     print(f"Packwiz destination : {repo / 'resourcepacks'}")
     print(f"Mode               : {'APPLY' if args.apply else 'PREVIEW'}")
-    print(f"ZIP files found    : {len(assets)}\n")
-    if not assets:
-        return 0
+    print(f"Enabled ZIP packs  : {len(assets)} ({len(active) - len(assets)} built-in entries)\n")
 
     hashes = {asset: sha512(asset) for asset in assets}
-    digest_to_asset = defaultdict(list)
-    for asset, digest in hashes.items():
-        digest_to_asset[digest].append(asset)
+    destination = repo / "resourcepacks"
+    existing_by_filename = {}
+    inactive = []
+    active_names = {asset.name for asset in assets}
+    for previous in destination.glob("*.pw.toml"):
+        try:
+            if previous.is_symlink():
+                raise ValueError(f"Symlink metadata: {previous}")
+            data = tomllib.loads(previous.read_text(encoding="utf-8"))
+            filename = data["filename"]
+            if not isinstance(filename, str) or filename in existing_by_filename:
+                raise ValueError(f"Invalid or duplicate filename: {filename!r}")
+            existing_by_filename[filename] = (previous, data)
+            if filename not in active_names:
+                inactive.append(previous)
+        except (OSError, KeyError, ValueError) as exc:
+            print(f"Invalid existing metadata {previous.name}: {exc}", file=sys.stderr)
+            return 1
+
+    pending_assets = []
+    existing = 0
+    for asset in assets:
+        old = existing_by_filename.get(asset.name)
+        if old:
+            download = old[1].get("download", {})
+            if download.get("hash-format") != "sha512" or download.get("hash") != hashes[asset]:
+                print(f"CONFLICT {asset.name}: existing metadata does not match local ZIP", file=sys.stderr)
+                return 1
+            existing += 1
+            print(f"EXISTS    {asset.name}")
+        else:
+            pending_assets.append(asset)
     try:
-        versions = get_versions(sorted(set(hashes.values())))
+        versions = get_versions(sorted({hashes[asset] for asset in pending_assets}))
     except (urllib.error.URLError, ValueError, json.JSONDecodeError) as exc:
         print(f"Modrinth lookup failed: {exc}", file=sys.stderr)
         return 1
 
-    destination = repo / "resourcepacks"
-    existing_by_filename: dict[str, list[tuple[Path, str]]] = defaultdict(list)
-    for previous in destination.glob("*.pw.toml"):
-        try:
-            data = tomllib.loads(previous.read_text(encoding="utf-8"))
-            if isinstance(data.get("filename"), str):
-                existing_by_filename[data["filename"]].append((previous, data.get("download", {}).get("hash", "")))
-        except (OSError, ValueError, tomllib.TOMLDecodeError):
-            print(f"WARNING: cannot parse existing metadata {previous.name}")
-
-    new = existing = conflict = unmatched = 0
-    for asset in assets:
+    pending = {}
+    unresolved = []
+    for asset in pending_assets:
         digest = hashes[asset]
         version = versions.get(digest)
         if not version:
-            unmatched += 1
             print(f"UNMATCHED {asset.name}  (ZIP bytes not found by Modrinth SHA-512)")
+            unresolved.append(asset.name)
             continue
         matching_files = [f for f in version.get("files", []) if f.get("hashes", {}).get("sha512") == digest]
         if not matching_files:
-            unmatched += 1
             print(f"UNMATCHED {asset.name}  (version found, file hash missing)")
+            unresolved.append(asset.name)
             continue
         try:
             content = meta_content(asset, version, matching_files[0], digest)
         except (KeyError, ValueError) as exc:
-            unmatched += 1
             print(f"UNMATCHED {asset.name}  ({exc})")
-            continue
-        old_entries = existing_by_filename.get(asset.name, [])
-        if old_entries:
-            if any(old_hash == digest for _, old_hash in old_entries):
-                existing += 1
-                print(f"EXISTS    {asset.name}")
-            else:
-                conflict += 1
-                print(
-                    f"CONFLICT  {asset.name}  (Packwiz already references this filename with a different hash; review manually)"
-                )
+            unresolved.append(asset.name)
             continue
         target = destination / safe_meta_name(asset.name, digest)
         if target.exists() and target.read_text(encoding="utf-8") != content:
-            conflict += 1
-            print(f"CONFLICT  {target.name} already exists with different content")
-            continue
-        new += 1
+            print(f"CONFLICT {target.name} already exists with different content", file=sys.stderr)
+            return 1
+        pending[target] = content
         print(f"{'ADD' if args.apply else 'WOULD ADD'} {asset.name}  =>  {target.name}")
-        if args.apply:
-            destination.mkdir(parents=True, exist_ok=True)
-            target.write_text(content, encoding="utf-8")
 
-    print(
-        f"\nSummary: {new} {'added' if args.apply else 'to add'}, {existing} already present, {conflict} conflicts, {unmatched} unresolved"
-    )
+    if unresolved:
+        print("Unresolved active packs; no repository files changed.", file=sys.stderr)
+        return 1
+
+    options_target = repo / "config/modpack_defaults/options.txt"
+    options_content = None
+    if args.sync_order:
+        if options_target.is_symlink():
+            print("Refusing symlink options defaults", file=sys.stderr)
+            return 1
+        original = options_target.read_text(encoding="utf-8") if options_target.exists() else ""
+        lines = []
+        remaining = dict(option_lines)
+        for line in original.splitlines(keepends=True):
+            key = line.partition(":")[0]
+            if key in option_lines:
+                if key not in remaining:
+                    print(f"Duplicate {key} in defaults", file=sys.stderr)
+                    return 1
+                lines.append(remaining.pop(key) + "\n")
+            else:
+                lines.append(line)
+        options_content = "".join(lines)
+        if remaining:
+            if options_content and not options_content.endswith("\n"):
+                options_content += "\n"
+            options_content += "".join(line + "\n" for line in remaining.values())
+        print(f"{'SYNC' if args.apply else 'WOULD SYNC'} resource-pack selection/order ({len(active)} entries)")
+    if args.prune_inactive:
+        for previous in sorted(inactive):
+            print(f"{'REMOVE' if args.apply else 'WOULD REMOVE'} {previous.name}")
     if args.apply:
-        print("Next: packwiz refresh && packwiz modrinth export -o /tmp/rvp-resourcepack-test.mrpack")
-    else:
-        print("Preview only. Run again with --apply after reviewing the list.")
-    if unmatched:
-        print("NOTE: A project being on Modrinth does not guarantee this exact ZIP was uploaded unchanged.")
-    return 0 if conflict == 0 and unmatched == 0 else 1
+        destination.mkdir(parents=True, exist_ok=True)
+        for target, content in pending.items():
+            target.write_text(content, encoding="utf-8")
+        if options_content is not None:
+            options_target.parent.mkdir(parents=True, exist_ok=True)
+            options_target.write_text(options_content, encoding="utf-8")
+        if args.prune_inactive:
+            for previous in inactive:
+                previous.unlink()
+    print(f"\nSummary: {len(pending)} additions, {existing} existing, {len(inactive) if args.prune_inactive else 0} removals")
+    print("Next: packwiz refresh" if args.apply else "Preview only; use --apply to write.")
+    return 0
 
 
 if __name__ == "__main__":

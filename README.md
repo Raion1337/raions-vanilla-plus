@@ -9,7 +9,7 @@ The focus is simple: **vanilla gameplay, better performance, improved visuals, a
 [**Download on Modrinth**](https://modrinth.com/project/TMAsWyhW) · [**Source code**](https://github.com/Raion1337/raions-vanilla-plus) · [**Report an issue**](https://github.com/Raion1337/raions-vanilla-plus/issues)
 
 > [!IMPORTANT]
-> **2.0.0 release candidate:** The Packwiz archive can be built and inspected locally. Clean launcher import, Minecraft startup, and first-launch defaults still require manual testing before public publication. Existing Modrinth downloads may differ from this repository.
+> **2.0.1 local build:** Archive contents, hashes, shipped defaults, and resource-pack order are [verified](docs/releases/v2.0.1-checklist.md). Clean launcher import, Minecraft startup, and first-launch application of defaults still require manual testing. Existing Modrinth downloads may differ from this repository.
 
 ## Why Vanilla Plus?
 
@@ -67,7 +67,7 @@ The availability and update behavior of both editions will be verified before se
 3. Select the `.mrpack` file and let Prism install the required files.
 4. Launch Minecraft.
 
-**2.0.0 requirements:** Minecraft **26.3**, Fabric Loader **0.20.1**, and Java **25**. Use a launcher that can import Modrinth `.mrpack` files. Hardware needs vary with shaders and render distance; no minimum memory or graphics target has been validated for this pack.
+**2.0.1 requirements:** Minecraft **26.3**, Fabric Loader **0.20.1**, and Java **25**. Use a launcher that can import Modrinth `.mrpack` files. Hardware needs vary with shaders and render distance; no minimum memory or graphics target has been validated for this pack.
 
 ## First launch and graphics
 
@@ -100,10 +100,10 @@ cd raions-vanilla-plus
 
 packwiz refresh
 mkdir -p dist
-packwiz modrinth export -o dist/raions-vanilla-plus-2.0.0.mrpack
+packwiz modrinth export -o dist/raions-vanilla-plus-2.0.1.mrpack
 ```
 
-Import the generated `.mrpack` into a **fresh Prism Launcher instance** for testing. Complete the [release checklist](docs/releases/v2.0.0-checklist.md) before publishing. The build output in `dist/` is intentionally ignored by Git.
+Import the generated `.mrpack` into a **fresh Prism Launcher instance** for testing. Complete the [release checklist](docs/releases/v2.0.1-checklist.md) before publishing. The build output in `dist/` is intentionally ignored by Git.
 
 ### Repository organization
 

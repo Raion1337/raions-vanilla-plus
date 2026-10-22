@@ -5,6 +5,10 @@ file = "config/modpack_defaults/config/iris.properties"
 hash = "d3de08322ff390f9fe26a04ffb1e92ddaff2d328395d0ed1420a6e6ab660851d"
 
 [[files]]
+file = "config/modpack_defaults/config/pickupnotifier-client.toml"
+hash = "e7ef9d9b1b1744d7aee3a55a5171774bffcc5e526ca3906cc7126865460cfc24"
+
+[[files]]
 file = "config/modpack_defaults/config/simpleblood.json"
 hash = "1129cb9e4cf7da9b4164bb6e053535e21a927ad9e30be8d2bdac59cc06a0db79"
 
@@ -94,7 +98,7 @@ hash = "7ad4c82ea0847cf7c7bbf311cb2f3e75a33024418cd0ba8336515c7cf115bc99"
 
 [[files]]
 file = "config/modpack_defaults/options.txt"
-hash = "5fbf28dda15df0dac947915790625072738938158e42154cb70175602dbb235d"
+hash = "332b7c773e387fdcb1f2e1d013d82a8f6fc9d5a8d0753b3141fe95a016780e9b"
 
 [[files]]
 file = "icon.png"
@@ -221,8 +225,18 @@ hash = "e343d515c133f0d6983fdbe703727996a859b2717fb6fa000a65f96481f18647"
 metafile = true
 
 [[files]]
+file = "mods/crash-assistant.pw.toml"
+hash = "b5ebb69b3d1c7622445efd73a0b68ea6e006394a0deecd5a15731c8438c15430"
+metafile = true
+
+[[files]]
 file = "mods/creativecore.pw.toml"
-hash = "c4b5a58831b3c67dfedfa2a967703f0101c3f22ba93e159091165d49a40d1663"
+hash = "80b3d2cc695757c403a6013bdeab90eb0f4c54973ca53d6a12697f310e0e4910"
+metafile = true
+
+[[files]]
+file = "mods/dark-loading-screen.pw.toml"
+hash = "0d58e550cd3733f974d88c988a81ab6e40dc6c41009db3f58048fb89d940f0fe"
 metafile = true
 
 [[files]]
@@ -366,11 +380,6 @@ hash = "70436e117f688dba48ac5827bdf2127de76b67791cb4ae481d398046c7330d48"
 metafile = true
 
 [[files]]
-file = "mods/lambdynamiclights.pw.toml"
-hash = "1144edbf85bc6fa465d29e04b85899677da9af4ff6945985f2b02573c4aaaf5c"
-metafile = true
-
-[[files]]
 file = "mods/language-reload.pw.toml"
 hash = "547178ed7b016515349f55360a99586b4f219f256768ade09e70b7aa22210544"
 metafile = true
@@ -511,13 +520,18 @@ hash = "49c51cb77b5daa3edfc6e4a2d0b6805f6659a13f5798293bc562290a199aba62"
 metafile = true
 
 [[files]]
+file = "mods/shatterbyte-lib.pw.toml"
+hash = "b014f6ce46e909db91ecd6e7fe5532e2b2c331175c49a831fd7e332048a31ad0"
+metafile = true
+
+[[files]]
 file = "mods/shulkerboxtooltip.pw.toml"
 hash = "d6826b91586a12196bf8319fd8968c0fdd5cfeac6e5a0e654c382cd3fd35055f"
 metafile = true
 
 [[files]]
 file = "mods/simple-blood.pw.toml"
-hash = "2ed67895586f9384893278d1f56ed6770e2ca6e94f9003634f412e95e159cbac"
+hash = "fd5ebf7f400aeb25237c36ac83fb79a41916b55b486dcf492bcf5144b6fc4198"
 metafile = true
 
 [[files]]
@@ -541,13 +555,18 @@ hash = "20524ed561918ac399c82bd9d8966acc346ac749c7a060b317cb890eebd0a373"
 metafile = true
 
 [[files]]
-file = "mods/sound-physics-remastered.pw.toml"
-hash = "1d87bc28aa19148a0fd270a0fb2976e70ea1115fd07a6dda25733393d27a4f2d"
+file = "mods/sound-physics-perfected.pw.toml"
+hash = "cf073819a9bbd8857f858b2560f043f9ec3cd1832c035b96f0e309010a914ed9"
 metafile = true
 
 [[files]]
 file = "mods/sound.pw.toml"
 hash = "80648c8b7674eeded96119dce8e94e6b9bf807a257b7c013bb3f6d8c8d168712"
+metafile = true
+
+[[files]]
+file = "mods/spark.pw.toml"
+hash = "ab0e4def11b4f56a177f13118f28a80301c3662be72e17a067f7938d18bb83f5"
 metafile = true
 
 [[files]]
@@ -582,7 +601,7 @@ metafile = true
 
 [[files]]
 file = "mods/voxy-extra.pw.toml"
-hash = "84b6b4b488b21abb8f7077f48e36ef2192072ef07431de31b949c213e2948225"
+hash = "057fa6e7ef7096010afd5f1a16eae641283f89f3c880d2709101f30555cc4857"
 metafile = true
 
 [[files]]
@@ -602,17 +621,17 @@ metafile = true
 
 [[files]]
 file = "mods/xaeroplus.pw.toml"
-hash = "ccd446a848e14ebb4a28bae0dc7467ee34a87cc90580fab47cdaccd24d775122"
+hash = "4f5d27fd9a9b3c761a657410d7944714ac71da60e6bd081e74f62c52c01462f3"
 metafile = true
 
 [[files]]
 file = "mods/xaeros-minimap.pw.toml"
-hash = "7ca2c09f3a8719f6e14b4b1c0edb39c2d4a50b628a28a62cc345d0402183eedc"
+hash = "c1645c0d81cc17ab51f6fa0472d91a8ca1122a491423f32d331a3e2ab6663198"
 metafile = true
 
 [[files]]
 file = "mods/xaeros-world-map.pw.toml"
-hash = "32c8a9ad87697d39e05d26857bda207233e1d0dec40867abff81d1cc768b6a3b"
+hash = "2048412823662b00e81e94782825380257842ee17037ca4699657d5ccfe6e648"
 metafile = true
 
 [[files]]
@@ -623,6 +642,11 @@ metafile = true
 [[files]]
 file = "mods/zoomify.pw.toml"
 hash = "6774e02e1087a49fc1357c8885ea598c88cb17db4fe360228da377756cd24375"
+metafile = true
+
+[[files]]
+file = "resourcepacks/6-lvanilla-experience-0-49ee05cc8e.pw.toml"
+hash = "ba910880b69cfe9e14bfe8560e1d158c4eba6a31f4cd0ef6ec2ade65194e6f4a"
 metafile = true
 
 [[files]]
@@ -666,18 +690,8 @@ hash = "c7db447a020b40b719b284f258119a069bd0c587199a7c74a71f0ae86c10ea2a"
 metafile = true
 
 [[files]]
-file = "resourcepacks/als-zombies-revamped-x-fresh-animations.pw.toml"
-hash = "a128f7e34b3d2f506396ae9b189991864bb0605ec274efe6c808e619728daaab"
-metafile = true
-
-[[files]]
-file = "resourcepacks/als-zombies-revamped.pw.toml"
-hash = "c90d63d2b6a82402489b6f0c6b54c9b9568dfb49d3923db99ec39a5995118f78"
-metafile = true
-
-[[files]]
-file = "resourcepacks/animated-items.pw.toml"
-hash = "2258fd38b3ea5e1dc27687efc00e8b55ce9d5393ae3737af87171adb53e8e312"
+file = "resourcepacks/better-lanterns-v1-4-0-26-2-26-3-1f921750d4.pw.toml"
+hash = "ae92af63a128a728ab30cd2648189b2cb551721669d36a2a0d35ebc793bffcca"
 metafile = true
 
 [[files]]
@@ -686,28 +700,8 @@ hash = "569b6af28d1badbf85e059d4c10b5ad455f7908cd5b3d32af8fa8ae60030cd0f"
 metafile = true
 
 [[files]]
-file = "resourcepacks/chests-reimagined.pw.toml"
-hash = "638839373a57a10ad890746e4a9aec0a0aa40f9e4924b18fe878ce536592f1fa"
-metafile = true
-
-[[files]]
 file = "resourcepacks/connected-paths.pw.toml"
 hash = "5ade9a7c398098c93ea1b218ac9c0f4a09914aa2a158b6d0cb47bb61597e2722"
-metafile = true
-
-[[files]]
-file = "resourcepacks/default-dark-mode.pw.toml"
-hash = "0c5a1cde391efcecebaf6451c65b7960532cc86ed695539fbe8703757ece3041"
-metafile = true
-
-[[files]]
-file = "resourcepacks/enhanced-boss-bars.pw.toml"
-hash = "618f75edb24429856cbb8d271a159feec66b9d8146fc7c590938dcdd9f0faf81"
-metafile = true
-
-[[files]]
-file = "resourcepacks/even-better-enchants.pw.toml"
-hash = "22a8c4089a67fd52effad2280546305067298fcdbfdefd6d5e32c468bcd618a2"
 metafile = true
 
 [[files]]
@@ -736,11 +730,6 @@ hash = "4208cefcf5fcfd2ba666a7589bc8b2fd08eca7c3402f7b9ce4cbbad40b74f686"
 metafile = true
 
 [[files]]
-file = "resourcepacks/fresh-animations-extensions.pw.toml"
-hash = "61f5f457fc7f97602886406a07d597d6d4740472fd48d7522c79ad5b0a1caaee"
-metafile = true
-
-[[files]]
 file = "resourcepacks/fresh-animations-objects.pw.toml"
 hash = "4689b127d184903deb75c3fde6a9d5dbf224c1466cb83830d3534f1e2ae48ae6"
 metafile = true
@@ -756,18 +745,13 @@ hash = "438b3e8777105ac77c30a0bf41c3a95881f3778b9bf134b8fd0b3050b8be5767"
 metafile = true
 
 [[files]]
-file = "resourcepacks/fresh-flower-pots.pw.toml"
-hash = "bc62ca5c466af0b21d7aa8a2aa0c65bff83f6d5aa5351706c8aea2c76bf7b6b5"
+file = "resourcepacks/fresh-food-a0e151d95d.pw.toml"
+hash = "1217ee32f49252e97d75328d3fe5badd5cd69872c969791d5d27e5579e4f5979"
 metafile = true
 
 [[files]]
 file = "resourcepacks/icon-fresh.pw.toml"
 hash = "6a7c52a4c3cd4dea9e261f5f14d7be72f26e0ed7cec7de27b54af8e1329e631b"
-metafile = true
-
-[[files]]
-file = "resourcepacks/icon-xaeros.pw.toml"
-hash = "a3331a8b4429e359bfd9c35ff2c10ab1f15156c00d7d0d443ac9618d865a77de"
 metafile = true
 
 [[files]]
@@ -781,11 +765,6 @@ hash = "73d63649b5e64472f5aeecb5d901d97ab4c95f26b11339e7caddc751686c1250"
 metafile = true
 
 [[files]]
-file = "resourcepacks/programmer-art-fix.pw.toml"
-hash = "8230c1e1b72814cd3f8bd928d26c971fd42cfbbd5bc2613013701fff4ea9a6bf"
-metafile = true
-
-[[files]]
 file = "resourcepacks/rays-3d-ladders.pw.toml"
 hash = "e7305951d66ec0007b64a234c876d2ca9562683bceb1998541c5655885ae24a2"
 metafile = true
@@ -793,6 +772,11 @@ metafile = true
 [[files]]
 file = "resourcepacks/rays-3d-rails.pw.toml"
 hash = "c88b6969f54458b2ff8bc2a1b052390aea5e0d560874cff247bf36265ff49b7c"
+metafile = true
+
+[[files]]
+file = "resourcepacks/re-covered-c220c3369d.pw.toml"
+hash = "fd81e851db0809f9923fb3bd508bf7a0fcbfe3e90235141cd5565f22b252a580"
 metafile = true
 
 [[files]]
@@ -808,11 +792,6 @@ metafile = true
 [[files]]
 file = "resourcepacks/simple-grass-flowers.pw.toml"
 hash = "88fd254a69932db869be3c40e4c76d7337f2fe762ec99a77ce6bafa751e9cc8c"
-metafile = true
-
-[[files]]
-file = "resourcepacks/smooth-font-32x.pw.toml"
-hash = "95283a35e6e27689d6bb64a25a9a8fa533f6ae70aa7ab0012afc5edafc0d4087"
 metafile = true
 
 [[files]]

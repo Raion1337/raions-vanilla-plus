@@ -1,12 +1,13 @@
-"""Import active resource/shader pack metadata from a Prism instance into Packwiz.
+"""Import active Prism mod, resource pack, or shader pack metadata into Packwiz.
 
-Does not copy ZIPs, delete any files, or modify the Prism instance.
+Does not copy archives, delete any files, or modify the Prism instance.
 Run in your Packwiz pack directory (containing pack.toml).
 """
 
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import shutil
 import sys
@@ -14,6 +15,7 @@ import tomllib
 from pathlib import Path
 
 CATEGORIES = ("resourcepacks", "shaderpacks")
+EXCLUDED_MOD_METADATA = frozenset({"lambdynamiclights.pw.toml"})
 
 
 def arguments() -> argparse.Namespace:
@@ -31,6 +33,13 @@ def arguments() -> argparse.Namespace:
         help="Packwiz pack directory containing pack.toml (default: cwd or PACKWIZ_REPO)",
     )
     parser.add_argument("--apply", action="store_true", help="Write .pw.toml files; otherwise preview only")
+    parser.add_argument(
+        "--mods-only", action="store_true", help="Import active mod metadata instead of resource/shader packs"
+    )
+    parser.add_argument(
+        "--only", action="append", metavar="NAME.pw.toml",
+        help="Import only this metadata filename (repeatable)"
+    )
     return parser.parse_args()
 
 
@@ -64,9 +73,35 @@ def main() -> int:
     print(f"Prism:    {game}")
     print(f"Packwiz:  {repo}")
     print(f"Mode:     {'APPLY' if args.apply else 'DRY RUN'}\n")
+    selected = set(args.only or ())
+    categories = ("mods",) if args.mods_only else CATEGORIES
+    active_resourcepacks = set()
+    if "resourcepacks" in categories:
+        try:
+            lines = (game / "options.txt").read_text(encoding="utf-8").splitlines()
+            selections = [line.partition(":")[2] for line in lines if line.startswith("resourcePacks:")]
+            if len(selections) != 1:
+                raise ValueError("Expected one resourcePacks entry in options.txt")
+            active = json.loads(selections[0])
+            if not isinstance(active, list) or not all(isinstance(item, str) for item in active):
+                raise ValueError("resourcePacks must be a JSON list of strings")
+            active_resourcepacks = {item[5:] for item in active if item.startswith("file/")}
+        except (OSError, ValueError) as exc:
+            print(f"Error reading enabled resource packs: {exc}", file=sys.stderr)
+            return 1
+    available = {
+        meta.name
+        for category in categories
+        for meta in (game / category / ".index").glob("*.pw.toml")
+        if category != "mods" or meta.name not in EXCLUDED_MOD_METADATA
+    }
+    if selected - available:
+        for name in sorted(selected - available):
+            print(f"ERROR: metadata not found: {name}", file=sys.stderr)
+        return 1
     total = 0
     warnings = 0
-    for category in CATEGORIES:
+    for category in categories:
         source = game / category
         dest = repo / category
         index = source / ".index"
@@ -75,7 +110,17 @@ def main() -> int:
             print("  Source directory missing; skipped\n")
             continue
         known = set()
+        excluded_files = set()
         for meta in sorted(index.glob("*.pw.toml")):
+            if selected and meta.name not in selected:
+                continue
+            if category == "mods" and meta.name in EXCLUDED_MOD_METADATA:
+                print(f"  SKIP excluded mod {meta.name}")
+                try:
+                    excluded_files.add(tomllib.loads(meta.read_text(encoding="utf-8"))["filename"])
+                except (OSError, UnicodeError, KeyError, tomllib.TOMLDecodeError):
+                    pass
+                continue
             try:
                 data = tomllib.loads(meta.read_text(encoding="utf-8"))
             except (OSError, UnicodeError, tomllib.TOMLDecodeError) as exc:
@@ -86,6 +131,9 @@ def main() -> int:
             if not isinstance(filename, str) or not filename or Path(filename).name != filename:
                 print(f"  SKIP invalid/missing filename in {meta.name}")
                 warnings += 1
+                continue
+            if category == "resourcepacks" and filename not in active_resourcepacks:
+                print(f"  SKIP inactive resource pack {meta.name}")
                 continue
             active_file = source / filename
             if not active_file.is_file():
@@ -101,11 +149,15 @@ def main() -> int:
                 shutil.copy2(meta, target)
             print(f"  {'COPY' if args.apply else 'WOULD COPY'} {meta.name} -> {category}/")
             total += 1
-        for asset in sorted(source.iterdir()):
+        for asset in (sorted(source.iterdir()) if not selected else ()):
             if asset.name.startswith(".") or asset.name in known:
                 continue
-            if asset.is_file() and asset.suffix.lower() == ".zip":
-                print(f"  MANUAL: no active metadata for ZIP {asset.name}")
+            if category == "resourcepacks" and asset.name not in active_resourcepacks:
+                continue
+            if asset.name in excluded_files:
+                continue
+            if asset.is_file() and asset.suffix.lower() == (".jar" if category == "mods" else ".zip"):
+                print(f"  MANUAL: no active metadata for {asset.name}")
                 warnings += 1
             elif asset.is_dir():
                 print(f"  MANUAL: unpacked directory {asset.name}")
